@@ -1,6 +1,5 @@
 package racingcar.view;
 
-import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.Racing;
@@ -19,13 +18,11 @@ public class OutputView {
         System.out.println(ROUND_RESULT_MESSAGE);
     }
 
-    public void printRoundResult(List<Racing> racings) {
-        for (Racing racing : racings) {
-            Cars cars = racing.getRoundResult();
+    public void printRoundResult(Racing racing) {
+        Cars cars = racing.getRoundResult();
 
-            for (Car car : cars.getCars()) {
-                System.out.println(car.getName() + " : " + "-".repeat(car.getCurrentPosition()) + LINE_SEPARATOR);
-            }
+        for (Car car : cars.getCars()) {
+            System.out.println(car.getName() + " : " + "-".repeat(car.getCurrentPosition()) + LINE_SEPARATOR);
         }
     }
 }

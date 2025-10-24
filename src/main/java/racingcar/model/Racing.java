@@ -4,6 +4,7 @@ import racingcar.model.vo.RacingCount;
 
 public class Racing {
 
+    public static final String DEFAULT_RACING_COUNT = "0";
     private final Cars cars;
     private final RacingCount racingCount;
 
@@ -14,5 +15,9 @@ public class Racing {
 
     public Cars getRoundResult() {
         return cars;
+    }
+
+    public static Racing of(Cars cars) {
+        return new Racing(cars, RacingCount.from(DEFAULT_RACING_COUNT));
     }
 }
