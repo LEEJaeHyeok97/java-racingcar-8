@@ -10,7 +10,7 @@ public class Position {
         this.position = position;
     }
 
-    public int getDistance() {
+    public int getPosition() {
         return position;
     }
 
