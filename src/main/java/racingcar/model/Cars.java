@@ -16,6 +16,13 @@ public class Cars {
         return cars;
     }
 
+    public int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getCurrentPosition)
+                .max()
+                .orElse(0);
+    }
+
     public static Cars from(List<String> carNames) {
         validateIsDuplicatdCarName(carNames);
         List<Car> mappedCars = carNames.stream()

@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import racingcar.model.vo.RacingCount;
 
 public class Racing {
@@ -19,5 +21,17 @@ public class Racing {
 
     public static Racing of(Cars cars) {
         return new Racing(cars, RacingCount.from(DEFAULT_RACING_COUNT));
+    }
+
+    public List<String> calculateWinners() {
+        List<String> winners = new ArrayList<>();
+
+        for (Car car : cars.getCars()) {
+            if (car.getCurrentPosition() == cars.getMaxPosition()) {
+                winners.add(car.getName().getName());
+            }
+        }
+
+        return winners;
     }
 }
