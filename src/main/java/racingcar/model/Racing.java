@@ -11,4 +11,8 @@ public class Racing {
         this.cars = cars;
         this.racingCount = racingCount;
     }
+
+    public Cars getRoundResult() {
+        return cars;
+    }
 }

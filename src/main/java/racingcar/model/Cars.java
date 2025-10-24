@@ -12,6 +12,10 @@ public class Cars {
         this.cars = cars;
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
     public static Cars from(List<String> carNames) {
         validateIsDuplicatdCarName(carNames);
         List<Car> mappedCars = carNames.stream()
