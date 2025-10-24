@@ -36,6 +36,7 @@ class NameTest {
 
         //when
         Name name = new Name(input);
+
         // then
         Assertions.assertThat(name.getName())
                 .isEqualTo(input);
