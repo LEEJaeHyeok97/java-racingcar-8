@@ -7,4 +7,8 @@ public class Position {
     public Position(int distance) {
         this.distance = distance;
     }
+
+    public int getDistance() {
+        return distance;
+    }
 }
