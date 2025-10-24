@@ -9,6 +9,14 @@ public class RacingCount {
         this.count = count;
     }
 
+    public RacingCount deductCount() {
+        return new RacingCount(count -1);
+    }
+
+    public int getCount() {
+        return count;
+    }
+
     public static RacingCount from(String racingCount) {
         int parsedLong = getParsedLong(racingCount);
         validateMinRaceCount(parsedLong);
