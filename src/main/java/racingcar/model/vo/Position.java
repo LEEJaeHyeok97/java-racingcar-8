@@ -2,13 +2,17 @@ package racingcar.model.vo;
 
 public class Position {
 
-    private final int distance;
+    private final int position;
 
-    public Position(int distance) {
-        this.distance = distance;
+    public Position(int position) {
+        this.position = position;
     }
 
     public int getDistance() {
-        return distance;
+        return position;
+    }
+
+    public static Position of(int position) {
+        return new Position(position);
     }
 }
