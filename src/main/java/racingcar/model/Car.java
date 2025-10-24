@@ -14,7 +14,7 @@ public class Car {
         this.position = Position.of(DEFAULT_POSITION);
     }
 
-    public Car of(Name name) {
-        return new Car(name);
+    public static Car of(String name) {
+        return new Car(Name.of(name));
     }
 }

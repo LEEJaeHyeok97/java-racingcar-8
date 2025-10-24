@@ -10,6 +10,10 @@ public class Name {
         this.name = name;
     }
 
+    public static Name of(String name) {
+        return new Name(name);
+    }
+
     private void validate(String name) {
         validateisEmpty(name);
         validateIsMaxLength(name);
