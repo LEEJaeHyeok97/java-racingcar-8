@@ -12,7 +12,7 @@ public class Cars {
         this.cars = cars;
     }
 
-    public Cars from(List<String> carNames) {
+    public static Cars from(List<String> carNames) {
         validateIsDuplicatdCarName(carNames);
         List<Car> mappedCars = carNames.stream()
                 .map(Car::of)
@@ -21,7 +21,7 @@ public class Cars {
         return new Cars(mappedCars);
     }
 
-    private void validateIsDuplicatdCarName(List<String> carNames) {
+    private static void validateIsDuplicatdCarName(List<String> carNames) {
         Set<String> nonDuplicatedCarNames = new HashSet<>(carNames);
         if (nonDuplicatedCarNames.size() != carNames.size()) {
             throw new IllegalArgumentException("같은 자동차의 이름을 중복으로 입력할 수 없습니다.");
