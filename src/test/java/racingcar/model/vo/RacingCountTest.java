@@ -9,7 +9,7 @@ class RacingCountTest {
 
     public static final String INVALID_MIN_COUNT = "0";
 
-    @DisplayName("경주 시도 횟수에 공백이 입력된 경우 예외 테스트")
+    @DisplayName("경주 시도 횟수에 공백이 입력되면 예외를 발생한다.")
     @Test
     void racingCountEmptyExceptionTest() {
         //given
@@ -19,7 +19,7 @@ class RacingCountTest {
         assertThrows(IllegalArgumentException.class, () -> RacingCount.from(input));
     }
 
-    @DisplayName("최소 경주 시도 횟수 이하의 값이 입력된 경우 예외 테스트")
+    @DisplayName("최소 경주 시도 횟수 이하의 값이 입력되면 예외를 발생한다.")
     @Test
     void racingCountMaxLengthLimitExceedExceptionTest() {
         //given

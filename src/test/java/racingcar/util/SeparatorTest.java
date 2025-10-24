@@ -10,7 +10,7 @@ class SeparatorTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"pobi,,woni,jun", "pobi,,,woni", "pobi,woni,jun,,,", "pobi,,,,,"})
-    @DisplayName("연속으로 구분자가 입력된 경우 예외 발생 테스트")
+    @DisplayName("연속으로 구분자가 입력되면 예외를 발생한다.")
     void continuousDelimiterTest(String input) {
         Separator separator = new Separator();
         assertThrows(IllegalArgumentException.class, () -> separator.splitNames(input));

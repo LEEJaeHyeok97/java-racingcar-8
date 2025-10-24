@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 class NameTest {
 
-    @DisplayName("입력 이름이 비어있을 때 예외 테스트")
+    @DisplayName("입력 이름이 비어있으면 예외를 발생한다.")
     @Test
     void nameEmptyExceptionTest() {
         //given
@@ -18,7 +18,7 @@ class NameTest {
         assertThrows(IllegalArgumentException.class, () -> new Name(input));
     }
 
-    @DisplayName("5글자를 초과한 이름 입력 시 예외 테스트")
+    @DisplayName("5글자를 초과한 이름을 입력하면 예외를 발생한다.")
     @Test
     void createNameMaxLengthExceed() {
         //given
@@ -28,7 +28,7 @@ class NameTest {
         assertThrows(IllegalArgumentException.class, () -> new Name(name));
     }
 
-    @DisplayName("5글자를 초과하지 않은 이름 입력 테스트")
+    @DisplayName("5글자를 초과하지 않은 이름을 입력하면 Name 객체를 생성한다.")
     @Test
     void createNameWithnMaxLength() {
         //given
