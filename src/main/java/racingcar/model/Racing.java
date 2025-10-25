@@ -6,7 +6,6 @@ import racingcar.model.vo.RacingCount;
 
 public class Racing {
 
-    public static final String DEFAULT_RACING_COUNT = "0";
     private final Cars cars;
     private final RacingCount racingCount;
 
@@ -15,12 +14,24 @@ public class Racing {
         this.racingCount = racingCount;
     }
 
+    public List<Car> getCars() {
+        return cars.getCars();
+    }
+
+    public int getRacingCount() {
+        return racingCount.getCount();
+    }
+
+    public void deductCount() {
+        racingCount.deductCount();
+    }
+
     public Cars getRoundResult() {
         return cars;
     }
 
-    public static Racing of(Cars cars) {
-        return new Racing(cars, RacingCount.from(DEFAULT_RACING_COUNT));
+    public static Racing of(Cars cars, RacingCount racingCount) {
+        return new Racing(cars, racingCount);
     }
 
     public List<String> calculateWinners() {
@@ -28,7 +39,7 @@ public class Racing {
 
         for (Car car : cars.getCars()) {
             if (car.getCurrentPosition() == cars.getMaxPosition()) {
-                winners.add(car.getName().getName());
+                winners.add(car.getName());
             }
         }
 

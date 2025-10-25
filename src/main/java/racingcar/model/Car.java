@@ -14,8 +14,8 @@ public class Car {
         this.position = Position.of(DEFAULT_POSITION);
     }
 
-    public Name getName() {
-        return name;
+    public String getName() {
+        return name.getName();
     }
 
     public int getCurrentPosition() {
@@ -24,5 +24,9 @@ public class Car {
 
     public static Car of(String name) {
         return new Car(Name.of(name));
+    }
+
+    public void move(int randomNumber) {
+        position.move(randomNumber);
     }
 }

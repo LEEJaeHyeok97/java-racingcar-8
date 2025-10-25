@@ -9,13 +9,13 @@ public class Separator {
     public static final Pattern CONTINUOUS_DELIMITER_PATTERN = Pattern.compile(CONTINOUS_DELIMITER_REGEX);
     public static final String DELIMITER = ",";
 
-    public String[] splitNames(String input) {
+    public static String[] splitNames(String input) {
         validateContinuousDelimiter(input);
 
         return input.split(DELIMITER);
     }
 
-    private void validateContinuousDelimiter(String input) {
+    private static void validateContinuousDelimiter(String input) {
         Matcher matcher = getContinuousDelimiterMatcher(input);
 
         if (matcher.find()) {
@@ -23,7 +23,7 @@ public class Separator {
         }
     }
 
-    private Matcher getContinuousDelimiterMatcher(String input) {
+    private static Matcher getContinuousDelimiterMatcher(String input) {
         return CONTINUOUS_DELIMITER_PATTERN.matcher(input);
     }
 }

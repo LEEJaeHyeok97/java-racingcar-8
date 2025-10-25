@@ -20,10 +20,10 @@ class PositionTest {
 
         //when
         Position position = new Position(distance);
-        Position movedPosition = position.move(randomNumber);
+        position.move(randomNumber);
 
         //then
-        assertThat(movedPosition.getPosition()).isEqualTo(distance + MOVE_DISTANCE);
+        assertThat(position.getPosition()).isEqualTo(distance + MOVE_DISTANCE);
     }
 
     @ParameterizedTest
@@ -35,9 +35,9 @@ class PositionTest {
 
         //when
         Position position = new Position(distance);
-        Position movedPosition = position.move(randomNumber);
+        position.move(randomNumber);
 
         //then
-        assertThat(movedPosition.getPosition()).isEqualTo(position.getPosition());
+        assertThat(position.getPosition()).isEqualTo(position.getPosition());
     }
 }

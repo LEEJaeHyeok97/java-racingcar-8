@@ -8,7 +8,6 @@ public class OutputView {
 
     public static final String RESULT_MESSAGE = "최종 우승자 : ";
     public static final String ROUND_RESULT_MESSAGE = "실행 결과";
-    public static final String LINE_SEPARATOR = System.lineSeparator();
 
     public void printResult(String result) {
         System.out.println(RESULT_MESSAGE + result);
@@ -22,7 +21,9 @@ public class OutputView {
         Cars cars = racing.getRoundResult();
 
         for (Car car : cars.getCars()) {
-            System.out.println(car.getName() + " : " + "-".repeat(car.getCurrentPosition()) + LINE_SEPARATOR);
+            System.out.println(car.getName() + " : " + "-".repeat(car.getCurrentPosition()));
         }
+
+        System.out.println();
     }
 }

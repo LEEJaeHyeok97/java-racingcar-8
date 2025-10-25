@@ -3,14 +3,14 @@ package racingcar.model.vo;
 public class RacingCount {
 
     public static final int MIN_RACE_COUNT = 1;
-    private final int count;
+    private int count;
 
     public RacingCount(int count) {
         this.count = count;
     }
 
-    public RacingCount deductCount() {
-        return new RacingCount(count -1);
+    public void deductCount() {
+        count--;
     }
 
     public int getCount() {

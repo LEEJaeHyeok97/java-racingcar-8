@@ -23,6 +23,10 @@ public class Cars {
                 .orElse(0);
     }
 
+    public static Cars of(List<Car> cars) {
+        return new Cars(cars);
+    }
+
     public static Cars from(List<String> carNames) {
         validateIsDuplicatdCarName(carNames);
         List<Car> mappedCars = carNames.stream()
