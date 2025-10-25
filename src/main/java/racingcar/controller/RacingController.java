@@ -15,6 +15,7 @@ import racingcar.view.OutputView;
 public class RacingController {
 
     public static final String CAR_NAME_DELIMITER = ",";
+    public static final int RACE_END_COUNT = 0;
     private final InputView inputView;
     private final OutputView outputView;
     private final NumberGenerator numberGenerator = new RandomNumberGenerator();
@@ -33,7 +34,7 @@ public class RacingController {
         Racing racing = Racing.of(cars, racingCount);
 
         outputView.printRoundResultMessage();
-        while (racing.getRacingCount() > 0) {
+        while (racing.getRacingCount() > RACE_END_COUNT) {
             for (Car car : racing.getCars()) {
                 car.move(numberGenerator.generateNumber());
             }
