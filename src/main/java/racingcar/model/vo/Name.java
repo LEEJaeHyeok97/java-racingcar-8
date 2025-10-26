@@ -1,5 +1,7 @@
 package racingcar.model.vo;
 
+import java.util.Objects;
+
 public class Name {
 
     public static final int MAX_LENGTH_LIMIT = 5;
@@ -33,5 +35,22 @@ public class Name {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (!(object instanceof Name)) {
+            return false;
+        }
+        Name objectName = (Name) object;
+        return Objects.equals(name, objectName.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }

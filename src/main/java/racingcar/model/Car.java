@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import java.util.Objects;
 import racingcar.model.vo.Name;
 import racingcar.model.vo.Position;
 
@@ -28,5 +29,22 @@ public class Car {
 
     public void move(int randomNumber) {
         position.move(randomNumber);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (!(object instanceof Car)) {
+            return false;
+        }
+        Car car = (Car) object;
+        return name.equals(car.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
