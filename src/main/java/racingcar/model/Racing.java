@@ -3,9 +3,11 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.vo.RacingCount;
+import racingcar.util.NumberGenerator;
 
 public class Racing {
 
+    public static final int RACE_END_COUNT = 0;
     private final Cars cars;
     private final RacingCount racingCount;
 
@@ -32,6 +34,18 @@ public class Racing {
 
     public static Racing of(Cars cars, RacingCount racingCount) {
         return new Racing(cars, racingCount);
+    }
+
+    public boolean hasNextRound() {
+        return racingCount.getCount() > RACE_END_COUNT;
+    }
+
+    public void proceedOneRound(NumberGenerator numberGenerator) {
+        for (Car car : cars.getCars()) {
+            car.move(numberGenerator.generateNumber());
+        }
+
+        racingCount.deductCount();
     }
 
     public List<String> calculateWinners() {

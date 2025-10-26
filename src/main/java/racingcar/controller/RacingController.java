@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.Racing;
 import racingcar.model.vo.RacingCount;
@@ -37,18 +36,10 @@ public class RacingController {
 
     private void proceedRace(Racing racing) {
         outputView.printRoundResultIntroduceMessage();
-        while (racing.getRacingCount() > RACE_END_COUNT) {
-            proceedRound(racing);
+        while (racing.hasNextRound()) {
+            racing.proceedOneRound(numberGenerator);
+            outputView.printRoundResult(racing);
         }
-    }
-
-    private void proceedRound(Racing racing) {
-        for (Car car : racing.getCars()) {
-            car.move(numberGenerator.generateNumber());
-        }
-
-        outputView.printRoundResult(racing);
-        racing.deductCount();
     }
 
     private void calculateWinners(Racing racing) {
