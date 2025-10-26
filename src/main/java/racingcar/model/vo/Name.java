@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 public class Name {
 
     public static final int MAX_LENGTH_LIMIT = 5;
+    public static final String WHITE_SPACE = " ";
     private final String name;
 
     public Name(String name) {
@@ -24,7 +25,7 @@ public class Name {
     }
 
     private static void validateContainsWhiteSpace(String name) {
-        if (name.contains(" ")) {
+        if (name.contains(WHITE_SPACE)) {
             throw new IllegalArgumentException("자동차의 이름에 공백이 포함될 수 없습니다.");
         }
     }
