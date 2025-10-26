@@ -1,5 +1,7 @@
 package racingcar.model.vo;
 
+import racingcar.exception.ErrorMessage;
+
 public class RacingCount {
 
     public static final int MIN_RACE_COUNT = 1;
@@ -31,7 +33,7 @@ public class RacingCount {
 
     private static void validateIsEmpty(String racingCount) {
         if (racingCount.isEmpty()) {
-            throw new IllegalArgumentException("경주 시도 횟수는 공백이 될 수 없습니다.");
+            throw new IllegalArgumentException(ErrorMessage.RACE_COUNT_EMPTY.getMessage());
         }
     }
 
@@ -39,13 +41,13 @@ public class RacingCount {
         try {
             return Integer.parseInt(racingCount);
         } catch (NumberFormatException exception) {
-            throw new IllegalArgumentException("경주 시도 횟수에 문자를 입력할 수 없습니다.");
+            throw new IllegalArgumentException(ErrorMessage.RACE_COUNT_NOT_NUMBER.getMessage());
         }
     }
 
     private static void validateMinRaceCount(int parsedLong) {
         if (parsedLong < MIN_RACE_COUNT) {
-            throw new IllegalArgumentException("경주 시도 횟수는 1 이상의 정수로 입력해야 합니다.");
+            throw new IllegalArgumentException(ErrorMessage.RACE_COUNT_BELOW_MINIMUM.getMessage());
         }
     }
 }

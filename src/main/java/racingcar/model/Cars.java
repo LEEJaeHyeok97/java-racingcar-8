@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import racingcar.exception.ErrorMessage;
 import racingcar.util.Separator;
 
 public class Cars {
@@ -52,7 +53,7 @@ public class Cars {
     private static void validateIsDuplicateCarName(Cars cars) {
         Set<Car> nonDuplicatedCarNames = new HashSet<>(cars.getCars());
         if (nonDuplicatedCarNames.size() != cars.cars.size()) {
-            throw new IllegalArgumentException("같은 자동차의 이름을 중복으로 입력할 수 없습니다.");
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_DUPLICATED.getMessage());
         }
     }
 }

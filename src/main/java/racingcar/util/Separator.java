@@ -2,6 +2,7 @@ package racingcar.util;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import racingcar.exception.ErrorMessage;
 
 public class Separator {
 
@@ -19,7 +20,7 @@ public class Separator {
         Matcher matcher = getContinuousDelimiterMatcher(input);
 
         if (matcher.find()) {
-            throw new IllegalArgumentException("구분자가 연속으로 입력되었습니다.");
+            throw new IllegalArgumentException(ErrorMessage.CONTINUOUS_DELIMITER.getMessage());
         }
     }
 

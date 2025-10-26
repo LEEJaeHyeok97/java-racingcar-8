@@ -1,6 +1,7 @@
 package racingcar.model.vo;
 
 import java.util.Objects;
+import racingcar.exception.ErrorMessage;
 
 public class Name {
 
@@ -25,19 +26,19 @@ public class Name {
 
     private static void validateContainsWhiteSpace(String name) {
         if (name.contains(WHITE_SPACE)) {
-            throw new IllegalArgumentException("자동차의 이름에 공백이 포함될 수 없습니다.");
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_CONTAINS_WHITESPACE.getMessage());
         }
     }
 
     private static void validateIsMaxLength(String name) {
         if (name.length() > MAX_LENGTH_LIMIT) {
-            throw new IllegalArgumentException("자동차의 이름의 길이는 5를 초과할 수 없습니다.");
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_EXCEEDED.getMessage());
         }
     }
 
     private void validateIsEmpty(String name) {
         if (name.isEmpty()) {
-            throw new IllegalArgumentException("자동차의 이름은 공백이 될 수 없습니다.");
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_EMPTY.getMessage());
         }
     }
 
