@@ -1,13 +1,15 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import racingcar.exception.ErrorMessage;
 import racingcar.util.Separator;
 
-public class Cars {
+public class Cars implements Iterable<Car> {
 
     public static final String CAR_NAME_DELIMITER = ",";
     public static final int DEFAULT_MAX_NUMBER = 0;
@@ -44,6 +46,11 @@ public class Cars {
 
         cars.add(Car.of(carNames));
         return new Cars(cars);
+    }
+
+    @Override
+    public Iterator<Car> iterator() {
+        return Collections.unmodifiableList(cars).iterator();
     }
 
     private static void validateIsDuplicateCarName(Cars cars) {

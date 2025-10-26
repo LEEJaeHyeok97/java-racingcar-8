@@ -23,7 +23,7 @@ public class OutputView {
     public void printRoundResult(Racing racing) {
         Cars cars = racing.getRoundResult();
 
-        for (Car car : cars.getCars()) {
+        for (Car car : cars) {
             System.out.println(car.getName() + " : " + "-".repeat(car.getCurrentPosition()));
         }
 
