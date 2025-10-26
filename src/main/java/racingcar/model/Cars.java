@@ -28,10 +28,6 @@ public class Cars {
                 .orElse(DEFAULT_MAX_NUMBER);
     }
 
-    public static Cars of(List<Car> cars) {
-        return new Cars(cars);
-    }
-
     public static Cars from(String carNames) {
         List<Car> cars = new ArrayList<>();
 
