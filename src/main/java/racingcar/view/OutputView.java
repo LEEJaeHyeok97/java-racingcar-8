@@ -16,7 +16,7 @@ public class OutputView {
         System.out.println(RESULT_MESSAGE + result);
     }
 
-    public void printRoundResultMessage() {
+    public void printRoundResultIntroduceMessage() {
         System.out.println(ROUND_RESULT_MESSAGE);
     }
 

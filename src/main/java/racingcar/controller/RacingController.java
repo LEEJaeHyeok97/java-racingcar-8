@@ -26,14 +26,20 @@ public class RacingController {
     }
 
     public void run() {
-        String input = inputView.inputCarName();
-        String raceCount = inputView.inputRaceCount();
+        racingStart(createRacing());
+    }
 
-        Cars cars = Cars.of(getCars(input));
-        RacingCount racingCount = RacingCount.from(raceCount);
-        Racing racing = Racing.of(cars, racingCount);
+    private Racing createRacing() {
+        return Racing.of(getCars(inputCarName()), getRaceCount(inputRaceCount()));
+    }
 
-        outputView.printRoundResultMessage();
+    private void racingStart(Racing racing) {
+        proceedRace(racing);
+        calculateWinners(racing);
+    }
+
+    private void proceedRace(Racing racing) {
+        outputView.printRoundResultIntroduceMessage();
         while (racing.getRacingCount() > RACE_END_COUNT) {
             for (Car car : racing.getCars()) {
                 car.move(numberGenerator.generateNumber());
@@ -41,24 +47,37 @@ public class RacingController {
             outputView.printRoundResult(racing);
             racing.deductCount();
         }
+    }
 
+    private void calculateWinners(Racing racing) {
         List<String> winnerNames = racing.calculateWinners();
         outputView.printResult(winnerNames);
     }
 
-    private static List<Car> getCars(String input) {
+    private String inputRaceCount() {
+        return inputView.inputRaceCount();
+    }
+
+    private RacingCount getRaceCount(String inputRaceCount) {
+        return RacingCount.from(inputRaceCount);
+    }
+
+    private String inputCarName() {
+        return inputView.inputCarName();
+    }
+
+    private Cars getCars(String input) {
         List<Car> cars = new ArrayList<>();
         if (input.contains(CAR_NAME_DELIMITER)) {
-            String[] splittedNames = Separator.splitNames(input);
-            for (String name : splittedNames) {
-                Car car = Car.of(name);
-                cars.add(car);
+            String[] names = Separator.splitNames(input);
+            for (String name : names) {
+                cars.add(Car.of(name));
             }
 
-            return cars;
+            return Cars.of(cars);
         }
 
         cars.add(Car.of(input));
-        return cars;
+        return Cars.of(cars);
     }
 }
