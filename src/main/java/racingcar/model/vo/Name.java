@@ -17,7 +17,7 @@ public class Name {
     }
 
     private void validate(String name) {
-        validateisEmpty(name);
+        validateIsEmpty(name);
         validateIsMaxLength(name);
     }
 
@@ -27,7 +27,7 @@ public class Name {
         }
     }
 
-    private void validateisEmpty(String name) {
+    private void validateIsEmpty(String name) {
         if (name.isEmpty()) {
             throw new IllegalArgumentException("자동차의 이름은 공백이 될 수 없습니다.");
         }
