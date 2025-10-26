@@ -41,7 +41,7 @@ public class Cars {
             }
 
             Cars newCars = new Cars(cars);
-            validateIsDuplicatdCarName(newCars);
+            validateIsDuplicateCarName(newCars);
             return newCars;
         }
 
@@ -49,7 +49,7 @@ public class Cars {
         return new Cars(cars);
     }
 
-    private static void validateIsDuplicatdCarName(Cars cars) {
+    private static void validateIsDuplicateCarName(Cars cars) {
         Set<Car> nonDuplicatedCarNames = new HashSet<>(cars.getCars());
         if (nonDuplicatedCarNames.size() != cars.cars.size()) {
             throw new IllegalArgumentException("같은 자동차의 이름을 중복으로 입력할 수 없습니다.");
