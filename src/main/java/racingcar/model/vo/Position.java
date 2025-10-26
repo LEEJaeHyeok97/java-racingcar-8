@@ -20,7 +20,7 @@ public class Position {
 
     public void move(int randomNumber) {
         if (isMovable(randomNumber)) {
-            position++;
+            position += MOVE_DISTANCE;
         }
     }
 
