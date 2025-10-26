@@ -16,18 +16,6 @@ public class Racing {
         this.racingCount = racingCount;
     }
 
-    public List<Car> getCars() {
-        return cars.getCars();
-    }
-
-    public int getRacingCount() {
-        return racingCount.getCount();
-    }
-
-    public void deductCount() {
-        racingCount.deductCount();
-    }
-
     public Cars getRoundResult() {
         return cars;
     }
