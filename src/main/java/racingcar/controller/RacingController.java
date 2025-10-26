@@ -38,12 +38,17 @@ public class RacingController {
     private void proceedRace(Racing racing) {
         outputView.printRoundResultIntroduceMessage();
         while (racing.getRacingCount() > RACE_END_COUNT) {
-            for (Car car : racing.getCars()) {
-                car.move(numberGenerator.generateNumber());
-            }
-            outputView.printRoundResult(racing);
-            racing.deductCount();
+            proceedRound(racing);
         }
+    }
+
+    private void proceedRound(Racing racing) {
+        for (Car car : racing.getCars()) {
+            car.move(numberGenerator.generateNumber());
+        }
+
+        outputView.printRoundResult(racing);
+        racing.deductCount();
     }
 
     private void calculateWinners(Racing racing) {
