@@ -9,6 +9,7 @@ import racingcar.util.Separator;
 public class Cars {
 
     public static final String CAR_NAME_DELIMITER = ",";
+    public static final int DEFAULT_MAX_NUMBER = 0;
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
@@ -23,7 +24,7 @@ public class Cars {
         return cars.stream()
                 .mapToInt(Car::getCurrentPosition)
                 .max()
-                .orElse(0);
+                .orElse(DEFAULT_MAX_NUMBER);
     }
 
     public static Cars of(List<Car> cars) {
