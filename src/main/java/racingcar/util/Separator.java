@@ -5,8 +5,8 @@ import java.util.regex.Pattern;
 
 public class Separator {
 
-    public static final String CONTINOUS_DELIMITER_REGEX = ",{2,}";
-    public static final Pattern CONTINUOUS_DELIMITER_PATTERN = Pattern.compile(CONTINOUS_DELIMITER_REGEX);
+    public static final String CONTINUOUS_DELIMITER_REGEX = ",{2,}";
+    public static final Pattern CONTINUOUS_DELIMITER_PATTERN = Pattern.compile(CONTINUOUS_DELIMITER_REGEX);
     public static final String DELIMITER = ",";
 
     public static String[] splitNames(String input) {
