@@ -38,6 +38,6 @@ class PositionTest {
         position.move(randomNumber);
 
         //then
-        assertThat(position.getPosition()).isEqualTo(position.getPosition());
+        assertThat(position.getPosition()).isEqualTo(distance);
     }
 }
