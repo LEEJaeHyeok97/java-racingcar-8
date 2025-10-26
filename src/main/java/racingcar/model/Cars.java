@@ -19,7 +19,7 @@ public class Cars implements Iterable<Car> {
         this.cars = cars;
     }
 
-    public int getMaxPosition() {
+    public int maxPosition() {
         return cars.stream()
                 .mapToInt(Car::getCurrentPosition)
                 .max()

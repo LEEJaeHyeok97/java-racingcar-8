@@ -40,11 +40,15 @@ public class Racing {
         List<String> winners = new ArrayList<>();
 
         for (Car car : cars) {
-            if (car.getCurrentPosition() == cars.getMaxPosition()) {
+            if (car.isAtPosition(maxPosition())) {
                 winners.add(car.getName());
             }
         }
 
         return winners;
+    }
+
+    private int maxPosition() {
+        return cars.maxPosition();
     }
 }

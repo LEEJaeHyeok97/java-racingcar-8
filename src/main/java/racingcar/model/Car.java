@@ -31,6 +31,10 @@ public class Car {
         position.move(randomNumber);
     }
 
+    public boolean isAtPosition(int target) {
+        return position.getPosition() == target;
+    }
+
     @Override
     public boolean equals(Object object) {
         if (this == object) {
