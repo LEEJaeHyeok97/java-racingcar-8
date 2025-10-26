@@ -6,8 +6,9 @@ import racingcar.model.Racing;
 
 public class OutputView {
 
+    public static final String LINE_SEPARATOR = System.lineSeparator();
     public static final String RESULT_MESSAGE = "최종 우승자 : ";
-    public static final String ROUND_RESULT_MESSAGE = "실행 결과";
+    public static final String ROUND_RESULT_MESSAGE = LINE_SEPARATOR + "실행 결과";
 
     public void printResult(String result) {
         System.out.println(RESULT_MESSAGE + result);
