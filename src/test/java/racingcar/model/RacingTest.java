@@ -50,15 +50,11 @@ class RacingTest {
     @Test
     void calculateSingleWinner() {
         //given
-        Cars cars = Cars.from("pobi,woni,jun");
+        Cars cars = Cars.from("pobi");
         Racing racing = Racing.of(cars, RacingCount.from("1"));
-        FixedNumberGenerator move = new FixedNumberGenerator(9);
-        FixedNumberGenerator stop = new FixedNumberGenerator(0);
 
         //when
-        cars.getCars().get(0).move(move.generateNumber());
-        cars.getCars().get(1).move(stop.generateNumber());
-        cars.getCars().get(2).move(stop.generateNumber());
+        racing.proceedOneRound(new FixedNumberGenerator(9));
 
         List<String> winners = racing.calculateWinners();
 
@@ -75,7 +71,7 @@ class RacingTest {
         FixedNumberGenerator move = new FixedNumberGenerator(9);
 
         //when
-        for (Car car : cars.getCars()) {
+        for (Car car : cars) {
             car.move(move.generateNumber());
         }
 

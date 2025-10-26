@@ -19,10 +19,6 @@ public class Cars implements Iterable<Car> {
         this.cars = cars;
     }
 
-    public List<Car> getCars() {
-        return cars;
-    }
-
     public int getMaxPosition() {
         return cars.stream()
                 .mapToInt(Car::getCurrentPosition)
@@ -31,21 +27,20 @@ public class Cars implements Iterable<Car> {
     }
 
     public static Cars from(String carNames) {
-        List<Car> cars = new ArrayList<>();
+        List<Car> separatedCars = new ArrayList<>();
 
         if (carNames.contains(CAR_NAME_DELIMITER)) {
             String[] names = Separator.splitNames(carNames);
             for (String name : names) {
-                cars.add(Car.of(name));
+                separatedCars.add(Car.of(name));
             }
 
-            Cars newCars = new Cars(cars);
-            validateIsDuplicateCarName(newCars);
-            return newCars;
+            validateIsDuplicateCarName(separatedCars);
+            return new Cars(separatedCars);
         }
 
-        cars.add(Car.of(carNames));
-        return new Cars(cars);
+        separatedCars.add(Car.of(carNames));
+        return new Cars(separatedCars);
     }
 
     @Override
@@ -53,9 +48,9 @@ public class Cars implements Iterable<Car> {
         return Collections.unmodifiableList(cars).iterator();
     }
 
-    private static void validateIsDuplicateCarName(Cars cars) {
-        Set<Car> nonDuplicatedCarNames = new HashSet<>(cars.getCars());
-        if (nonDuplicatedCarNames.size() != cars.cars.size()) {
+    private static void validateIsDuplicateCarName(List<Car> separatedCars) {
+        Set<Car> nonDuplicatedCarNames = new HashSet<>(separatedCars);
+        if (nonDuplicatedCarNames.size() != separatedCars.size()) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_DUPLICATED.getMessage());
         }
     }

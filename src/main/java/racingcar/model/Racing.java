@@ -29,7 +29,7 @@ public class Racing {
     }
 
     public void proceedOneRound(NumberGenerator numberGenerator) {
-        for (Car car : cars.getCars()) {
+        for (Car car : cars) {
             car.move(numberGenerator.generateNumber());
         }
 
@@ -39,7 +39,7 @@ public class Racing {
     public List<String> calculateWinners() {
         List<String> winners = new ArrayList<>();
 
-        for (Car car : cars.getCars()) {
+        for (Car car : cars) {
             if (car.getCurrentPosition() == cars.getMaxPosition()) {
                 winners.add(car.getName());
             }
