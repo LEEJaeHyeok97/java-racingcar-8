@@ -5,20 +5,19 @@ import racingcar.model.Cars;
 import racingcar.model.Racing;
 import racingcar.model.vo.RacingCount;
 import racingcar.util.NumberGenerator;
-import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingController {
 
-    public static final int RACE_END_COUNT = 0;
     private final InputView inputView;
     private final OutputView outputView;
-    private final NumberGenerator numberGenerator = new RandomNumberGenerator();
+    private final NumberGenerator numberGenerator;
 
-    public RacingController(InputView inputView, OutputView outputView) {
+    public RacingController(InputView inputView, OutputView outputView, NumberGenerator numberGenerator) {
         this.inputView = inputView;
         this.outputView = outputView;
+        this.numberGenerator = numberGenerator;
     }
 
     public void run() {
