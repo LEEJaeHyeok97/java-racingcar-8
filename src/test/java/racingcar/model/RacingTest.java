@@ -81,6 +81,7 @@ class RacingTest {
 
         List<String> winners = racing.calculateWinners();
 
+        //then
         assertThat(winners).containsExactlyInAnyOrder("pobi", "woni", "jun");
     }
 }
