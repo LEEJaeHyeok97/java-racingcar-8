@@ -3,6 +3,7 @@ package racingcar.model.vo;
 public class RacingCount {
 
     public static final int MIN_RACE_COUNT = 1;
+    public static final int ONE_ATTEMPT = 1;
     private int count;
 
     public RacingCount(int count) {
@@ -10,7 +11,7 @@ public class RacingCount {
     }
 
     public void deductCount() {
-        count--;
+        count -= ONE_ATTEMPT;
     }
 
     public int getCount() {
