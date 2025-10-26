@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Cars;
@@ -8,13 +7,11 @@ import racingcar.model.Racing;
 import racingcar.model.vo.RacingCount;
 import racingcar.util.NumberGenerator;
 import racingcar.util.RandomNumberGenerator;
-import racingcar.util.Separator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingController {
 
-    public static final String CAR_NAME_DELIMITER = ",";
     public static final int RACE_END_COUNT = 0;
     private final InputView inputView;
     private final OutputView outputView;
@@ -67,17 +64,6 @@ public class RacingController {
     }
 
     private Cars getCars(String input) {
-        List<Car> cars = new ArrayList<>();
-        if (input.contains(CAR_NAME_DELIMITER)) {
-            String[] names = Separator.splitNames(input);
-            for (String name : names) {
-                cars.add(Car.of(name));
-            }
-
-            return Cars.of(cars);
-        }
-
-        cars.add(Car.of(input));
-        return Cars.of(cars);
+        return Cars.from(input);
     }
 }
