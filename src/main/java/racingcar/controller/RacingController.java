@@ -41,6 +41,9 @@ public class RacingController {
             outputView.printRoundResult(racing);
             racing.deductCount();
         }
+
+        List<String> winnerNames = racing.calculateWinners();
+        outputView.printResult(winnerNames);
     }
 
     private static List<Car> getCars(String input) {

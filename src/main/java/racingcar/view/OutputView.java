@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.Racing;
@@ -10,7 +11,8 @@ public class OutputView {
     public static final String RESULT_MESSAGE = "최종 우승자 : ";
     public static final String ROUND_RESULT_MESSAGE = LINE_SEPARATOR + "실행 결과";
 
-    public void printResult(String result) {
+    public void printResult(List<String> input) {
+        String result = String.join(", ", input);
         System.out.println(RESULT_MESSAGE + result);
     }
 
