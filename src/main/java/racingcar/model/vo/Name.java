@@ -1,6 +1,7 @@
 package racingcar.model.vo;
 
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 public class Name {
 
@@ -17,8 +18,15 @@ public class Name {
     }
 
     private void validate(String name) {
+        validateContainsWhiteSpace(name);
         validateIsEmpty(name);
         validateIsMaxLength(name);
+    }
+
+    private static void validateContainsWhiteSpace(String name) {
+        if (name.contains(" ")) {
+            throw new IllegalArgumentException("자동차의 이름에 공백이 포함될 수 없습니다.");
+        }
     }
 
     private static void validateIsMaxLength(String name) {
