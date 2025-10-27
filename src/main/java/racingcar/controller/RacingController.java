@@ -25,7 +25,7 @@ public class RacingController {
     }
 
     private Racing createRacing() {
-        return Racing.of(getCars(inputCarName()), getRaceCount(inputRaceCount()));
+        return Racing.of(toCars(inputCarName()), toRaceCount(inputRaceCount()));
     }
 
     private void racingStart(Racing racing) {
@@ -50,7 +50,7 @@ public class RacingController {
         return inputView.inputRaceCount();
     }
 
-    private RacingCount getRaceCount(String inputRaceCount) {
+    private RacingCount toRaceCount(String inputRaceCount) {
         return RacingCount.from(inputRaceCount);
     }
 
@@ -58,7 +58,7 @@ public class RacingController {
         return inputView.inputCarName();
     }
 
-    private Cars getCars(String input) {
+    private Cars toCars(String input) {
         return Cars.from(input);
     }
 }
